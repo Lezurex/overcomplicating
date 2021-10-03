@@ -1,4 +1,4 @@
-package com.lezurex;
+package com.lezurex.overcomplicated;
 
 import static org.junit.Assert.*;
 
