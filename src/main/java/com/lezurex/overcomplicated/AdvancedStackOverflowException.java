@@ -1,4 +1,4 @@
-package com.lezurex;
+package com.lezurex.overcomplicated;
 
 public class AdvancedStackOverflowException extends StackOverflowError{
 
