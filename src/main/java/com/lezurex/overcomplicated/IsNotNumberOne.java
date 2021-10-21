@@ -6,7 +6,7 @@ package com.lezurex.overcomplicated;
 
 public class IsNotNumberOne {
 
-    public static boolean isNumberOne(int number) {
+    public static boolean isNotNumberOne(int number) {
         return number != 1;
     }
 }
