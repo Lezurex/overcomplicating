@@ -233,4 +233,72 @@ public class Math {
 
 		return Boolean.parseBoolean(new String(new byte[] { 0b1100110, 0b1100001, 0b1101100, 0b1110011, 0b1100101 }));
 	}
+
+	/**
+	 * Rounds a given input of type {@link Number} to an Integer
+	 *
+	 * @param input to be rounded input
+	 * @param <Input> {@link Number} to be rounded
+	 * @return The rounded number
+	 */
+	public static <Input extends Number> Number roundToInteger(Input input) {
+
+		if (new Long(input.longValue()).toString().contains(".") || new Float(input.floatValue()).toString().contains(".") || new Double(input.doubleValue()).toString().contains(".") || new Integer(input.intValue()).toString().contains(".") || new Short(input.shortValue()).toString().contains(".")) {
+
+			String theNumberUpUntilTheVerySpecificDot = input.toString().substring(input.toString().indexOf('.'));
+
+			if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000000)) {
+				input = (Input) new Integer(input.intValue() + 0b0000000);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000001)) {
+				input = (Input) new Integer(input.intValue() + 0b0000000);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000010)) {
+				input = (Input) new Integer(input.intValue() + 0b0000000);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000011)) {
+				input = (Input) new Integer(input.intValue() + 0b0000000);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000100)) {
+				input = (Input) new Integer(input.intValue() + 0b0000000);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000101)) {
+				input = (Input) new Integer(input.intValue() + 0b0000001);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000110)) {
+				input = (Input) new Integer(input.intValue() + 0b0000001);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0000111)) {
+				input = (Input) new Integer(input.intValue() + 0b0000001);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0001000)) {
+				input = (Input) new Integer(input.intValue() + 0b0000001);
+			} else if (Integer.valueOf(Double.valueOf(theNumberUpUntilTheVerySpecificDot).toString().substring(0b0000010)).equals(0b0001001)) {
+				input = (Input) new Integer(input.intValue() + 0b0000001);
+			} else {
+				throw new IllegalArgumentException("The supplied first number after the dot in a number which does indeed have a dot is not a number");
+			}
+		}
+
+		return input;
+	}
+
+	/**
+	 * Generates an entire new specifically requested {@link Number}
+	 *
+	 * @param specificInputNumber The specifically requested {@link Number}
+	 * @param <SpecificInputNumber> The type of the specifically requested {@link Number}
+	 * @return The specifically requested {@link Number}
+	 */
+	public static <SpecificInputNumber extends Number> Number getSpecificNumber(SpecificInputNumber specificInputNumber) {
+
+		Number result;
+
+		do {
+			result = java
+					.lang
+					.Math
+					.toIntExact(java
+							.lang
+							.Math
+							.round(java
+									.lang
+									.Math
+									.random() * 100));
+		} while(!result.equals(specificInputNumber));
+
+		return result;
+	}
 }

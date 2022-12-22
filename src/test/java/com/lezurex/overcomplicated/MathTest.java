@@ -81,4 +81,31 @@ class MathTest {
 		assertTrue(Math.isNumberExactlyOneGreaterThanTwoHundredSixtySevenThousandSixHundredTwentyNine(267630));
 		assertFalse(Math.isNumberExactlyOneGreaterThanTwoHundredSixtySevenThousandSixHundredTwentyNine(267627));
 	}
+
+	@Test
+	void roundToInteger() {
+		assertEquals(5, Math.roundToInteger(5.0));
+		assertEquals(5, Math.roundToInteger(5.1));
+		assertEquals(5, Math.roundToInteger(5.2));
+		assertEquals(5, Math.roundToInteger(5.3));
+		assertEquals(5, Math.roundToInteger(5.4));
+		assertEquals(6, Math.roundToInteger(5.5));
+		assertEquals(6, Math.roundToInteger(5.6));
+		assertEquals(6, Math.roundToInteger(5.7));
+		assertEquals(6, Math.roundToInteger(5.8));
+		assertEquals(6, Math.roundToInteger(5.9));
+	}
+
+	@Test
+	void getSpecificNumberWorksAsExpected() {
+		assertEquals(1, Math.getSpecificNumber(1));
+		assertEquals(2, Math.getSpecificNumber(2));
+		assertEquals(3, Math.getSpecificNumber(3));
+		assertEquals(4, Math.getSpecificNumber(4));
+		assertEquals(5, Math.getSpecificNumber(5));
+		assertEquals(6, Math.getSpecificNumber(6));
+		assertEquals(7, Math.getSpecificNumber(7));
+		assertEquals(8, Math.getSpecificNumber(8));
+		assertEquals(9, Math.getSpecificNumber(9));
+	}
 }
