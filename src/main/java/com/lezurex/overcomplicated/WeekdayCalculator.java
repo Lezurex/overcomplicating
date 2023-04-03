@@ -141,7 +141,7 @@ public class WeekdayCalculator {
                     if(!isSaturday()) {
                         if(!isSunday()) {
                             if(!isFriday()) {
-                                return false;
+                                return true;
                             } else
                                 return false;
                         } else
